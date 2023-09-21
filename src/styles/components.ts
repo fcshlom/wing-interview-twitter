@@ -22,6 +22,24 @@ export const PageContainer = styled.div`
     height: 100vh;
     max-width: 600px;
 `
+export const DialogBackdrop = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: ${fadeOut} 0.5s linear;
+`
+export const DialogContainer = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    animation: ${fadeOut} 0.5s linear;
+`
 
 export const Container = styled.div<{$useFullBorders?: boolean}>`
     border-top: 1px solid lightgray;
@@ -102,7 +120,7 @@ export const Div = styled.div`
 export const Date = styled.div`
     font-size: 12px;
     font-weight: 700;    
-    margin-top: 10px;
+    margin: 10px 0;
     color: #a8a8a8;
     padding-left: 10px;
     `

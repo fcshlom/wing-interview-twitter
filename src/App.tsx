@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
 import Home from './pages/Home';
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
-    <Home />
-  );
+    <RecoilRoot>
+      <Home />
+    </RecoilRoot>  );
 }
 
 export default App;
