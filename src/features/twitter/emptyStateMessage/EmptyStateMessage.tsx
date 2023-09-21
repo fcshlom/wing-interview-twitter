@@ -1,18 +1,17 @@
 import { FC, ReactElement } from "react"
 import { Container } from "../../../styles/components";
 import Button from "../../../shared/Button";
-import './emptyStateMessage.sass'
 import { useRecoilState } from "recoil";
 import { inputFocusState } from "../atoms/tweetAtom";
+import './emptyStateMessage.sass'
 
 const EmptyStateMessage: FC = (): ReactElement => {
     const [,setInputFocus] = useRecoilState(inputFocusState);
 
     const handleSetFocusClick = () => {
         setInputFocus(true);
-        setTimeout(() => setInputFocus(false), 0)
     }
-    
+
     return (
         <div style={{display: "flex", justifyContent: "center"}}>
             <Container className="container">

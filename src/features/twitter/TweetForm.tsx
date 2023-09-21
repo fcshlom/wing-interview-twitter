@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, ReactElement, useState } from 'react'
 import Button from '../../shared/Button'
 import TextArea from '../../shared/TextArea';
 import {useRecoilState} from "recoil";
-import {inputFocusState, isLoadingState, tweetState} from "./atoms/tweetAtom";
+import {isLoadingState, tweetState} from "./atoms/tweetAtom";
 import { Container, UserTitle, Footer, Counter, VSeperator } from '../../styles/components';
 import { Tweet } from '../../models/Tweet';
 import generateId from '../../shared/utils/idGenerator';
@@ -18,8 +18,6 @@ const TwitteForm: FC<formProps> = ({userName}): ReactElement => {
     
     const [, setTweets] = useRecoilState(tweetState);
     const [, setIsLoading] = useRecoilState(isLoadingState);
-    const [inputFocus] = useRecoilState(inputFocusState);
-
     
     const handleTwittTextChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setTweetText(e.target.value)
@@ -44,7 +42,7 @@ const TwitteForm: FC<formProps> = ({userName}): ReactElement => {
     return (
       <Container $useFullBorders>
         <UserTitle $underline>{userName}</UserTitle>
-        <TextArea onChange={handleTwittTextChange} setFocus={inputFocus} name='tweetText' value={tweetText} placeholder='What is happening?!'/>
+        <TextArea onChange={handleTwittTextChange} name='tweetText' value={tweetText} placeholder='What is happening?!'/>
         <Footer>
             <Counter $isErorr={tweetText.length > maxTweetLength}>{maxTweetLength - tweetText.length}</Counter>
             <VSeperator/>

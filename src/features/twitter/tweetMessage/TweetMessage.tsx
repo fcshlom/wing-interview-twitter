@@ -2,11 +2,10 @@ import React, { FC, ReactElement } from 'react'
 import { Tweet } from '../../../models/Tweet'
 import { Div, Date, UserTitle } from '../../../styles/components'
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import './tweetMessage.sass'
-
 import moment from 'moment'
 import { useRecoilState } from 'recoil'
 import { deleteConfirmDialogState } from '../atoms/tweetAtom'
+import './tweetMessage.sass'
 
 type TweetMessageProps ={
     tweet: Tweet,

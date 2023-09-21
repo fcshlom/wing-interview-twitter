@@ -1,24 +1,27 @@
 import React, {ChangeEvent, FC, ReactElement, useEffect, useRef } from 'react'
 import { TextAreaInput } from '../styles/components'
-interface TextAreaProps {
+import { useRecoilState } from 'recoil'
+import { inputFocusState } from '../features/twitter/atoms/tweetAtom'
+
+type TextAreaProps = {
     value: string
     name: string
     placeholder: string
     disabled?: boolean
     onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
-    setFocus: boolean
   }
 const TextArea: FC<TextAreaProps>  = ({
     value,
     name,
     placeholder,
     disabled,
-    onChange, setFocus
+    onChange
 }): ReactElement => {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
+    const [focus, setInputFocus] = useRecoilState(inputFocusState);
 
     useAutosizeTextArea(textAreaRef.current, value);
-    useFocusTextArea(textAreaRef.current, setFocus);
+    useFocusTextArea(textAreaRef.current, focus, setInputFocus);
 
   return (
     <TextAreaInput 
@@ -54,12 +57,13 @@ const useAutosizeTextArea = (
   }
 const useFocusTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
-    setFocus: boolean
+    setFocus: boolean,
+    setInputFocus: (focus: boolean) => void
   ) => {
     useEffect(() => {
       if (textAreaRef && setFocus) {
-        console.log("Focusing the textarea", setFocus);
         textAreaRef.focus();
+        setInputFocus(false);
       }
-    }, [textAreaRef, setFocus]);
+    }, [textAreaRef, setFocus, setInputFocus]);
   };

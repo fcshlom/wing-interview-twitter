@@ -40,7 +40,9 @@ export const DialogContainer = styled.div`
     border-radius: 15px;
     animation: ${fadeOut} 0.5s linear;
 `
-
+export const ListContainer = styled.div`
+  overflow-y: auto;
+`
 export const Container = styled.div<{$useFullBorders?: boolean}>`
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
