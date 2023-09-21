@@ -1,0 +1,30 @@
+@import "../../../styles/variables.sass"
+
+button.delete-button
+    border: none
+    background-color: transparent
+    color: red
+    width: auto
+    height: auto
+    font-size: 20px
+    margin-left: auto
+    cursor: pointer
+    display: none
+
+.flex
+    display: flex
+
+.tweet-container
+    border-top: 1px solid $text-color
+    padding: 20px
+    display: flex
+    margin: 0 20px    
+    max-width: 600px
+    flex-direction: column
+
+    &:last-of-type
+        border-bottom: 1px solid $text-color
+        
+
+    &:hover .delete-button
+        display: block
