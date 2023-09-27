@@ -1,5 +1,26 @@
-@import "../../../styles/variables.sass"
+@import '../../../styles/variables.sass'
+
     
+
+.dialog-backdrop
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.5)
+    z-index: 1
+    animation: fadeOut 0.5s linear
+
+.dialog-container
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-width: 600px
+    padding: 20px
+    background: white
+    border-radius: 15px
+    animation: fadeOut 0.5s linear
+
 .error-dialog
     width: 300px
     display: flex
@@ -12,21 +33,22 @@
         font-size: 18px
         padding-bottom: 15px
         font-weight: 500
-        color: #555
+        color: $text-color
     
-    button
+    button.primery-button
         width: 100%
-        border-radius: 20px
-        font-size: 18px
-        font-weight: bold
         margin-top: 10px
-        padding: 10px
-        cursor: pointer
-
+        line-height: 20px
+    
         &.confirm-delete-button
-            background-color: red
-            color: white
-            border: none
+            background-color: $alert-color
+            &:hover
+                background: darken($alert-color, 20%)
+
+    
         &.cancel-delete-button
             background-color: transparent
+            color: black
             border: solid 1px $text-color
+            &:hover
+                background: $border-color

@@ -1,42 +1,42 @@
 import React, {ChangeEvent, FC, ReactElement, useEffect, useRef } from 'react'
-import { TextAreaInput } from '../styles/components'
-import { useRecoilState } from 'recoil'
-import { inputFocusState } from '../features/twitter/atoms/tweetAtom'
+import { FocusFlag } from '../models/Tweet'
 
 type TextAreaProps = {
     value: string
     name: string
     placeholder: string
     disabled?: boolean
+    focus?: FocusFlag
     onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
   }
-const TextArea: FC<TextAreaProps>  = ({
+export const TextArea: FC<TextAreaProps>  = ({
     value,
     name,
     placeholder,
     disabled,
+    focus,
     onChange
 }): ReactElement => {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    const [focus, setInputFocus] = useRecoilState(inputFocusState);
+    useEffect(() => {
+        if (focus?.setFocus ) {
+          textAreaRef.current?.focus();
+        }
+    }, [focus]);
 
     useAutosizeTextArea(textAreaRef.current, value);
-    useFocusTextArea(textAreaRef.current, focus, setInputFocus);
 
   return (
-    <TextAreaInput 
+    <textarea 
         value={value} 
         name={name} 
         placeholder={placeholder} 
         disabled={disabled} 
         ref={textAreaRef}
-        rows={1}
-        onChange={onChange}>
-    </TextAreaInput>
+        rows={2}
+        onChange={onChange}/>
   )
 }
-
-export default TextArea
 
 // Updates the height of a <textarea> when the value changes.
 const useAutosizeTextArea = (
@@ -46,24 +46,14 @@ const useAutosizeTextArea = (
     useEffect(() => {
       if (textAreaRef) {
         // We need to reset the height momentarily to get the correct scrollHeight for the textarea
-        textAreaRef.style.height = "0px";
+        textAreaRef.style.height = '0px';
+        const maxHeight = document.body.scrollHeight; // limit text area hight to prevent screen glitches
         const scrollHeight = textAreaRef.scrollHeight;
         // We then set the height directly, outside of the render loop
         // Trying to set this with state or a ref will product an incorrect value.
-        textAreaRef.style.height = scrollHeight + "px";
+        textAreaRef.style.height = Math.min( scrollHeight, maxHeight/3) + 'px';
       }
     }, [textAreaRef, value]);
   
   }
-const useFocusTextArea = (
-    textAreaRef: HTMLTextAreaElement | null,
-    setFocus: boolean,
-    setInputFocus: (focus: boolean) => void
-  ) => {
-    useEffect(() => {
-      if (textAreaRef && setFocus) {
-        textAreaRef.focus();
-        setInputFocus(false);
-      }
-    }, [textAreaRef, setFocus, setInputFocus]);
-  };
+

@@ -1,0 +1,109 @@
+@import './variables.sass'
+@import './animation.sass'
+    
+.page-container 
+    display: grid
+    grid-template-rows: auto 1fr
+    height: 100vh
+    max-width: 600px
+    margin: auto
+    &.disabled
+        pointer-events: none
+        opacity: 0.5
+        cursor: default
+
+.container
+    border-top: 1px solid $border-color
+    border-bottom: 1px solid $border-color
+    padding: 20px 20px 10px
+    display: flex
+    margin: 20px    
+    max-width: 600px
+    flex-direction: column
+
+.flex
+    display: flex
+
+.full-container
+    border-left: 1px solid $border-color
+    border-right: 1px solid $border-color
+    border-radius: 15px
+
+button
+  border: none
+  animation: fadeIn 0.5s ease
+  cursor: pointer
+  transition: all 300ms ease
+    
+  &.primery-button
+        border-radius: 20px
+        font-weight: bold
+        padding: 10px 15px
+        background: $button-color
+        color: white
+        width: max-content
+        font-family: 'Roboto', sans-serif
+
+        &:hover:not(:disabled)
+            background: darken($button-color, 10%)
+
+  &:hover:not(:disabled)
+    transition: all 300ms ease
+
+  &:disabled
+    opacity: 0.5
+    cursor: not-allowed
+    transition: all 300ms ease
+
+textarea
+  width: auto
+  padding: 10px
+  margin: 10px 0
+  border: none
+  border-bottom: 1px solid $border-color
+  background: transparent
+  color: black
+  outline: none
+  resize: none
+  font-size: 20px
+  font-family: 'Roboto', sans-serif
+
+.error
+    color: $alert-color
+    
+.user-title
+    font-size: 14px
+    font-weight: bold
+    padding: 10px
+    text-underline-offset: 8px
+    text-transform: capitalize
+    font-family: 'Roboto', sans-serif
+    height: 16px
+
+.underline
+    text-decoration: underline dashed from-font
+
+.footer
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    gap: 10px
+
+.vSeperator
+    width: 1px
+    height: 20px
+    background-color: $border-color
+
+.user-input
+    border: none
+    border-bottom: 1px solid $border-color
+    outline: none
+    background: transparent
+    color: black
+    font-size: 10px
+    font-family: 'Roboto', sans-serif
+    margin: 12px 
+
+.user-name-label
+    font-size: 14px
+    padding-left: 10px 
