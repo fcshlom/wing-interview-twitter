@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import {TwitteForm} from '../features/twitter/tweetForm/TweetForm';
-import {TweetsList} from '../features/twitter/tweetsList/TweetsList';
-import {EmptyStateMessage} from '../features/twitter/emptyStateMessage/EmptyStateMessage';
-import {DeleteConfirmationDialog} from '../features/twitter/deleteConfirmationDialog/DeleteConfirmationDialog';
-import {FocusFlag, Tweet} from '../models/Tweet';
+import {TwitteForm} from 'features/twitter/tweetForm/TweetForm';
+import {TweetsList} from 'features/twitter/tweetsList/TweetsList';
+import {EmptyStateMessage} from 'features/twitter/emptyStateMessage/EmptyStateMessage';
+import {DeleteConfirmationDialog} from 'features/twitter/deleteConfirmationDialog/DeleteConfirmationDialog';
+import {FocusFlag, Tweet} from 'models/Tweet';
 
 export function Home() {
     const [userName, setUserName] = useState('');

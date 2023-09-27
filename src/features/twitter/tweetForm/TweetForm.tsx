@@ -1,8 +1,8 @@
 import React, { ChangeEvent, FC, ReactElement, useState } from 'react'
-import {Button} from '../../../shared/Button'
-import {TextArea} from '../../../shared/TextArea';
-import {FocusFlag, Tweet} from '../../../models/Tweet';
-import {generateId} from '../../../shared/utils/idGenerator';
+import {Button} from 'shared/Button'
+import {TextArea} from 'shared/TextArea';
+import {FocusFlag, Tweet} from 'models/Tweet';
+import {generateId} from 'shared/utils/idGenerator';
 import './tweetForm.sass';
 
 type props = {

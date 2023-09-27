@@ -1,5 +1,5 @@
 import React, {FC, ReactElement} from 'react';
-import {Tweet} from '../../../models/Tweet';
+import {Tweet} from 'models/Tweet';
 import {TweetMessage} from '../tweetMessage/TweetMessage';
 import './tweetsList.sass';
 

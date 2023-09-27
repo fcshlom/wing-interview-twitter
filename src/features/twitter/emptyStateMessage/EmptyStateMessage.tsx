@@ -1,5 +1,5 @@
 import { FC, ReactElement } from 'react'
-import {Button} from '../../../shared/Button';
+import {Button} from 'shared/Button';
 import './emptyStateMessage.sass'
 
 type Props = {

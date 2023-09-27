@@ -1,5 +1,5 @@
 import React, {FC, ReactElement} from 'react'
-import {Tweet} from '../../../models/Tweet'
+import {Tweet} from 'models/Tweet'
 import {RiDeleteBin6Line} from 'react-icons/ri';
 import moment from 'moment'
 import './tweetMessage.sass'
