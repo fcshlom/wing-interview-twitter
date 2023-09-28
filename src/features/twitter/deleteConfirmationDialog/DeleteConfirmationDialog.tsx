@@ -2,12 +2,12 @@ import { FC, ReactElement } from 'react';
 import './deleteConfirmationDialog.sass';
 
 type Props ={
-    handleConfirm: (isConfirm: boolean) => void,
+    onConfirm: (isConfirm: boolean) => void,
 }
 
-export const DeleteConfirmationDialog: FC<Props> = ({handleConfirm}): ReactElement => {
-    const handeleCancelClick = () => handleConfirm(false)
-    const handeleConfirmClick = () => handleConfirm(true)
+export const DeleteConfirmationDialog: FC<Props> = ({onConfirm}): ReactElement => {
+    const handeleCancelClick = () => onConfirm(false)
+    const handeleConfirmClick = () => onConfirm(true)
     return (
         <div className='dialog-backdrop' onClick={handeleCancelClick}>
             <div className='dialog-container'>

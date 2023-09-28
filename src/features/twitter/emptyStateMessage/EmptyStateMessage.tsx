@@ -1,14 +1,14 @@
 import { FC, ReactElement } from 'react'
-import {Button} from 'shared/Button';
+import {Button} from 'shared/button/Button';
 import './emptyStateMessage.sass'
 
 type Props = {
-    handleFocus: () => void
+    onFocus: () => void
 }
 
-export const EmptyStateMessage: FC<Props> = ({handleFocus}): ReactElement => {
+export const EmptyStateMessage: FC<Props> = ({onFocus}): ReactElement => {
     const handleSetFocusClick = () => {
-        handleFocus();
+        onFocus();
     }
 
     return (
@@ -17,7 +17,7 @@ export const EmptyStateMessage: FC<Props> = ({handleFocus}): ReactElement => {
                 <div className='title'>Welcome to Twitter!</div>
                 <div className='message'>This is the best place to see what's
                 happening in your world. Find some people and topics to follow now.</div>
-                <Button lable={'Tweet something!'} onClick={handleSetFocusClick} ></Button>
+                <Button onClick={handleSetFocusClick} >Tweet something!</Button>
             </div>
         </div>
     )

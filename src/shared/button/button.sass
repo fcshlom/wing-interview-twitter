@@ -1,0 +1,28 @@
+@import 'styles/variables.sass'
+@import 'styles/animation.sass'
+
+button
+  border: none
+  animation: fadeIn 0.5s ease
+  cursor: pointer
+  transition: all 300ms ease
+    
+  &.primery-button
+        border-radius: 20px
+        font-weight: bold
+        padding: 10px 15px
+        background: $button-color
+        color: white
+        width: max-content
+        font-family: 'Roboto', sans-serif
+
+        &:hover:not(:disabled)
+            background: darken($button-color, 10%)
+
+  &:hover:not(:disabled)
+    transition: all 300ms ease
+
+  &:disabled
+    opacity: 0.5
+    cursor: not-allowed
+    transition: all 300ms ease

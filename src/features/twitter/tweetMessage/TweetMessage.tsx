@@ -6,12 +6,12 @@ import './tweetMessage.sass'
 
 type Props ={
     tweet: Tweet,
-    handleDelete: (tweetId: string) => void
+    onDelete: (tweetId: string) => void
 }
 
-export const TweetMessage: FC<Props> = ({tweet, handleDelete}): ReactElement => {
+export const TweetMessage: FC<Props> = ({tweet, onDelete}): ReactElement => {
   const handleOnDelete = () => {
-    handleDelete(tweet.id);
+    onDelete(tweet.id);
   };
 
   return (
