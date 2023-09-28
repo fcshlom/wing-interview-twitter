@@ -50,7 +50,6 @@ const useAutosizeTextArea = (
         textAreaRef.style.height = '0px';
         const maxHeight = document.body.scrollHeight; // limit text area hight to prevent screen glitches
         const scrollHeight = textAreaRef.scrollHeight;
-        debugger
         // We then set the height directly, outside of the render loop
         // Trying to set this with state or a ref will product an incorrect value.
         textAreaRef.style.height = Math.min( scrollHeight, maxHeight/3) + 'px';
