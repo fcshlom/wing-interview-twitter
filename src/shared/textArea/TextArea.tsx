@@ -6,7 +6,7 @@ type TextAreaProps = {
     name: string
     placeholder: string
     disabled?: boolean
-    textAreaRef?: RefObject<HTMLTextAreaElement>
+    textAreaRef: RefObject<HTMLTextAreaElement>
     onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
   }
 export const TextArea: FC<TextAreaProps>  = ({
@@ -18,7 +18,7 @@ export const TextArea: FC<TextAreaProps>  = ({
     onChange
 }): ReactElement => {
   
-  useAutosizeTextArea(textAreaRef!.current, value);
+  useAutosizeTextArea(textAreaRef.current, value);
 
   return (
     <textarea 
