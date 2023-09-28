@@ -12,6 +12,7 @@ type props = {
 }
 
 export const TwitteForm: FC<props> = ({userName, onSubmit, textAreaRef}): ReactElement => {
+
   const maxTweetLength = 280;
   const [tweetText, setTweetText] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);

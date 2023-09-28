@@ -1,3 +1,4 @@
+
 import React, { RefObject, useRef, useState } from 'react';
 import {TwitteForm} from 'features/twitter/tweetForm/TweetForm';
 import {TweetsList} from 'features/twitter/tweetsList/TweetsList';
@@ -11,6 +12,7 @@ export function Home() {
     const [tweets, setTweets] = useState<Tweet[]>([]);
     const [tweetIdToDelete, setTweetIdToDelete] = useState<string>('');
     const textAreaRef: RefObject<HTMLTextAreaElement> = useRef<HTMLTextAreaElement>(null);
+
     const onTweedAdd = (newTweet: Tweet) => {
         setTweets([...tweets, newTweet]);
     }
