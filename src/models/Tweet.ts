@@ -4,7 +4,3 @@ export interface Tweet {
     tweetText: string;
     createdAt: number;
 }
-
-export interface FocusFlag {
-    setFocus: boolean
-}
