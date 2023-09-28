@@ -1,17 +1,18 @@
-import React, { ChangeEvent, FC, ReactElement, useState } from 'react'
+import React, { ChangeEvent, FC, ReactElement, RefObject, useState } from 'react'
 import {Button} from 'shared/button/Button'
 import {TextArea} from 'shared/textArea/TextArea';
-import {FocusFlag, Tweet} from 'models/Tweet';
+import {Tweet} from 'models/Tweet';
 import {generateId} from 'shared/utils/idGenerator';
 import './tweetForm.sass';
 
 type props = {
   userName: string,
   onSubmit: (tweet: Tweet) => void
-  focus: FocusFlag
+  textAreaRef: RefObject<HTMLTextAreaElement>
 }
 
-export const TwitteForm: FC<props> = ({userName, onSubmit, focus}): ReactElement => {
+export const TwitteForm: FC<props> = ({userName, onSubmit, textAreaRef}): ReactElement => {
+
   const maxTweetLength = 280;
   const [tweetText, setTweetText] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
@@ -35,7 +36,7 @@ export const TwitteForm: FC<props> = ({userName, onSubmit, focus}): ReactElement
   return (
     <div className='container full-container'>
       <div className={`user-title underline ${!userName ? 'error': ''}`}>{userName || 'Missing User Name!!'}</div>
-      <TextArea onChange={handleTwittTextChange} name='tweetText' focus={focus} 
+      <TextArea onChange={handleTwittTextChange} name='tweetText' textAreaRef={textAreaRef}
         value={tweetText} placeholder='What is happening?!'/>
       <div className='footer'>
           <span className={`counter  ${(tweetText.length > maxTweetLength) ? 'error' : ''}`}>

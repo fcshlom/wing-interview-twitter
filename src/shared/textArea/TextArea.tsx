@@ -1,5 +1,4 @@
-import React, {ChangeEvent, FC, ReactElement, useEffect, useRef } from 'react'
-import { FocusFlag } from 'models/Tweet'
+import React, {ChangeEvent, FC, ReactElement, RefObject, useEffect } from 'react'
 import './textArea.sass'
 
 type TextAreaProps = {
@@ -7,7 +6,7 @@ type TextAreaProps = {
     name: string
     placeholder: string
     disabled?: boolean
-    focus?: FocusFlag
+    textAreaRef?: RefObject<HTMLTextAreaElement>
     onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
   }
 export const TextArea: FC<TextAreaProps>  = ({
@@ -15,17 +14,11 @@ export const TextArea: FC<TextAreaProps>  = ({
     name,
     placeholder,
     disabled,
-    focus,
+    textAreaRef,
     onChange
 }): ReactElement => {
-    const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    useEffect(() => {
-        if (focus?.setFocus ) {
-          textAreaRef.current?.focus();
-        }
-    }, [focus]);
-
-    useAutosizeTextArea(textAreaRef.current, value);
+  
+  useAutosizeTextArea(textAreaRef!.current, value);
 
   return (
     <textarea 
